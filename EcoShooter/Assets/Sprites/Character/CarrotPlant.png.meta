@@ -8,6 +8,21 @@ TextureImporter:
   - first:
       213: -3642569158160700459
     second: CarrotPlant_1
+  - first:
+      213: 5943850110376966743
+    second: CarrotPlant_0
+  - first:
+      213: -6069006018223740465
+    second: CarrotPlant_1
+  - first:
+      213: 7616629019429797898
+    second: CarrotPlant_2
+  - first:
+      213: -6899116396761019288
+    second: CarrotPlant_2
+  - first:
+      213: 2443297038967460071
+    second: CarrotPlant_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -119,14 +134,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d45eb51c66a5dca80800000000000000
-      internalID: -8444994328872622771
+      spriteID: 75a7f2bfe2ccc7250800000000000000
+      internalID: 5943850110376966743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: CarrotPlant_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9e0107e2f86cba0800000000000000
+      internalID: -6069006018223740465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarrotPlant_2
       rect:
         serializedVersion: 2
         x: 0
@@ -140,8 +176,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dba90a56aef27dc0800000000000000
-      internalID: -3642569158160700459
+      spriteID: 86c8cf2b03a6140a0800000000000000
+      internalID: -6899116396761019288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarrotPlant_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e05b6836b558e120800000000000000
+      internalID: 2443297038967460071
       vertices: []
       indices: 
       edges: []

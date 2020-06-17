@@ -8,6 +8,24 @@ TextureImporter:
   - first:
       213: -6190993602976605483
     second: GoldPlant_1
+  - first:
+      213: 5981147449839190204
+    second: GoldPlant_0
+  - first:
+      213: -7950939433489210289
+    second: GoldPlant_1
+  - first:
+      213: -4975269576569077651
+    second: GoldPlant_2
+  - first:
+      213: -7402010229371219466
+    second: GoldPlant_3
+  - first:
+      213: 6408882229287173999
+    second: GoldPlant_4
+  - first:
+      213: -262573995010902489
+    second: GoldPlant_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,6 +127,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb006e88aed410350800000000000000
+      internalID: 5981147449839190204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldPlant_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44ea3c06b698a190800000000000000
+      internalID: -7950939433489210289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldPlant_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -119,14 +179,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1940e5115a7fa540800000000000000
-      internalID: 5021366598219352351
+      spriteID: d60cac22eaa44fab0800000000000000
+      internalID: -4975269576569077651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoldPlant_1
+      name: GoldPlant_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f15586f9e6c64990800000000000000
+      internalID: -7402010229371219466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldPlant_4
       rect:
         serializedVersion: 2
         x: 0
@@ -140,8 +221,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5da1ddf8e1c251aa0800000000000000
-      internalID: -6190993602976605483
+      spriteID: f6fb9fb8e6ce0f850800000000000000
+      internalID: 6408882229287173999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldPlant_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726be1cb7562b5cf0800000000000000
+      internalID: -262573995010902489
       vertices: []
       indices: 
       edges: []
