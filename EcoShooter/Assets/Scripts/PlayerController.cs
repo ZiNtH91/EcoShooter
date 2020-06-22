@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
 
     // Central GameObjects and Variables
     public GameObject projectile;
+    public GameObject sackOfGold;
     private Tilemap tilemap;
+    private Bounds deliveryArea;
     public LayerMask seedLayer;
     public LayerMask interactLayer;
 
@@ -43,9 +45,10 @@ public class PlayerController : MonoBehaviour
     float interactRadius = 0.25f;
     float seedRadius = 0.5f;
     float bendDuration = 0.4f;
-    int waterCost = 10;
+    int waterCost = 0;
     bool triggerHarvestAnimation = false;
     bool triggerSeedAnimation = false;
+    bool triggerDeliverAnimation = false;
     private bool isOccupied = false;
 
     // Basic Attributes
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         ps_dust = GetComponentInChildren<ParticleSystem>();
         tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();
+        deliveryArea = FindObjectOfType<DeliveryArea>().gameObject.GetComponent<BoxCollider2D>().bounds;
     }
 
     // Update is called once per frame
@@ -265,6 +269,12 @@ public class PlayerController : MonoBehaviour
         // Determines where Character looks for interaction
         Vector2 interactionPosition = transform.position + interactConstant * interactDirection;
 
+        // Check if interaction targets the Gold Delivery Area
+        if (deliveryArea.Contains(interactionPosition))
+        {
+            DeliverGold(interactionPosition);
+        }
+
         // Find Plants and Harvest the first Plant to be found
         // Else Seed new Plant if possible
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(interactionPosition, interactRadius, interactLayer);
@@ -339,6 +349,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void DeliverGold(Vector3 deliveryPosition)
+    {
+
+        if (goldCount >= GameController.rentDeduction && !GameController.rentDelivered)
+        {
+            AddGold(-GameController.rentDeduction);
+            GameController.rentDelivered = true;
+
+            GameObject instance = Instantiate(sackOfGold, deliveryPosition, Quaternion.identity);
+            Destroy(instance, 3);
+
+            triggerDeliverAnimation = true;
+            isOccupied = true;
+            Invoke("ResetIsOccupied", bendDuration);
+            Debug.Log("Delivered!");
+        }
+    }
+
     /*
      * Manage currently active seed
      */
@@ -373,11 +401,12 @@ public class PlayerController : MonoBehaviour
         }
 
         // Trigger Seed and Harvest
-        if(triggerSeedAnimation || triggerHarvestAnimation)
+        if(triggerSeedAnimation || triggerHarvestAnimation || triggerDeliverAnimation)
         {
             anim.SetTrigger("bend");
             triggerSeedAnimation = false;
             triggerHarvestAnimation = false;
+            triggerDeliverAnimation = false;
         }
 
         // Movement

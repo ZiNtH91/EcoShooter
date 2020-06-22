@@ -7,9 +7,10 @@ public class GameController : MonoBehaviour
 
 
     // Rent Deduction System
-    public int rentDeduction = 10;
+    public static int rentDeduction = 30;
     private float rentDeductionTimer = 0;
-    public float rentDeductionPeriod = 0;
+    private float rentDeductionPeriod = 20;
+    public static bool rentDelivered = false;
 
     // Food Deduction Mechanism
     public int foodDeduction = 10;
@@ -28,7 +29,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Character").GetComponent<PlayerController>();
-        InvokeRepeating("RentIsDue", rentDeduction, rentDeductionPeriod);
     }
 
     // Update is called once per frame
@@ -44,7 +44,6 @@ public class GameController : MonoBehaviour
         }
 
         RentDeductionManager();
-        //FoodDeductionManager(); // Deactivated
     }
 
 
@@ -53,18 +52,12 @@ public class GameController : MonoBehaviour
         rentDeductionTimer += Time.deltaTime;
         if(rentDeductionTimer > rentDeductionPeriod)
         {
-            player.AddGold(-rentDeduction);
+            if (!rentDelivered)
+            {
+                gameOver = true;
+            }
             rentDeductionTimer = 0;
-        }
-    }
-
-    private void FoodDeductionManager()
-    {
-        foodDeductionTimer += Time.deltaTime;
-        if (foodDeductionTimer > foodDeductionPeriod)
-        {
-            player.AddCarrots(-foodDeduction);
-            foodDeductionTimer = 0;
+            rentDelivered = false;
         }
     }
 
@@ -72,8 +65,5 @@ public class GameController : MonoBehaviour
     {
         return (rentDeductionTimer / rentDeductionPeriod);
     }
-    public float GetRelativeFoodDeductionTimer()
-    {
-        return (foodDeductionTimer / foodDeductionPeriod);
-    }
+
 }

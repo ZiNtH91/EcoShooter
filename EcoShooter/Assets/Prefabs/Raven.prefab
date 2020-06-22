@@ -124,7 +124,7 @@ MonoBehaviour:
     type: 3}
   treeLayers:
     serializedVersion: 2
-    m_Bits: 4352
+    m_Bits: 37120
 --- !u!114 &5321373117688485784
 MonoBehaviour:
   m_ObjectHideFlags: 0

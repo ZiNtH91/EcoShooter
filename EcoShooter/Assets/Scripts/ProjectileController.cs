@@ -48,7 +48,7 @@ public class ProjectileController : MonoBehaviour
             other.gameObject.GetComponent<Enemy>().Die();
             Destroy(this.gameObject);
         }
-        else if (other.transform.tag != "Player") 
+        else if (other.transform.tag != "Player" && other.transform.tag != "Default") 
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);

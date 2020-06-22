@@ -6,15 +6,17 @@ public class Plant : MonoBehaviour
 {
     public GameObject[] plantStages;
     public float[] stageTransitions;
+    private ParticleSystem ps_stageChange;
 
     private int stage = 0;
     private float age;
 
     public Sprite sprite;
 
+
     void Start()
     {
-
+        ps_stageChange = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class Plant : MonoBehaviour
         stage += 1;
         plantStages[stage].SetActive(true);
         plantStages[stage - 1].SetActive(false);
+        ps_stageChange.Play();
     }
 
 }

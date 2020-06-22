@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class InterfaceController : MonoBehaviour
 {
     public Image healthbar;
-    public Image waterbar;
-    public Image foodDecutionBar;
     public Image rentDeductionBar;
     public TextMeshProUGUI gameTime;
 
@@ -34,9 +32,7 @@ public class InterfaceController : MonoBehaviour
         carrotCount.text = player.GetCarrotCount().ToString();
         goldCount.text = player.GetGoldCount().ToString();
         healthbar.fillAmount = (float)player.GetHealth() / 100;
-        waterbar.fillAmount = (float)player.GetWaterCount() / 100;
-        foodDecutionBar.fillAmount = gameController.GetRelativeFoodDeductionTimer();
-        rentDeductionBar.fillAmount = gameController.GetRelativeRentDeductionTimer();
+        rentDeductionBar.fillAmount = 1 - gameController.GetRelativeRentDeductionTimer();
         HandleSeedMarkers(player.GetCurrentSeed());
 
 
