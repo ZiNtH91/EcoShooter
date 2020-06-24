@@ -10,6 +10,7 @@ public class InterfaceController : MonoBehaviour
     public Image healthbar;
     public Image rentDeductionBar;
     public TextMeshProUGUI gameTime;
+    public TextMeshProUGUI highScore;
 
     public Image[] seedMarkers;
     public TextMeshProUGUI carrotCount;
@@ -29,6 +30,7 @@ public class InterfaceController : MonoBehaviour
     void Update()
     {
         gameTime.text = GameController.gameTime.ToString();
+        highScore.text = HighscoreController.highScore.ToString();
         carrotCount.text = player.GetCarrotCount().ToString();
         goldCount.text = player.GetGoldCount().ToString();
         healthbar.fillAmount = (float)player.GetHealth() / 100;

@@ -45,8 +45,16 @@ public class ProjectileController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.transform.tag == "Enemy")
         {
+
+            HighscoreController.AddToHighScore(HighscoreController.enemyShotScore);
+
             other.gameObject.GetComponent<Enemy>().Die();
-            Destroy(this.gameObject);
+
+            if (!PlayerController.hasPiercingPowerUp)
+            {
+                Destroy(this.gameObject);
+            }
+            
         }
         else if (other.transform.tag != "Player" && other.transform.tag != "Default") 
         {

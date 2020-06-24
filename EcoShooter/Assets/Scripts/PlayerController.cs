@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
     private int goldCount;
     private int waterCount;
     private int health;
+
+    public static bool hasPiercingPowerUp=false;
+    private float piercingPowerUpDuration=10;
+    private float piercingPowerUpTimer=0;
      
 
     //Central Components
@@ -97,6 +101,7 @@ public class PlayerController : MonoBehaviour
         MovementManager();
         AnimationMananger();
         AccelerationManager();
+        PowerUpManager();
     }
 
     /*
@@ -313,11 +318,12 @@ public class PlayerController : MonoBehaviour
         if (plant.GetComponent<CarrotPlant>() != null)
         {
             carrotCount += plant.GetComponent<CarrotPlant>().HarvestCarrot();
+            HighscoreController.AddToHighScore(HighscoreController.carrotHarvestScore);
         }
         if (plant.GetComponent<GoldPlant>() != null)
         {
-            Debug.Log("Tried to harvest Gold Plant");
             goldCount += plant.GetComponent<GoldPlant>().HarvestGold();
+            HighscoreController.AddToHighScore(HighscoreController.goldHarvestScore);
         }
 
         triggerHarvestAnimation = true;
@@ -359,6 +365,8 @@ public class PlayerController : MonoBehaviour
 
             GameObject instance = Instantiate(sackOfGold, deliveryPosition, Quaternion.identity);
             Destroy(instance, 3);
+
+            HighscoreController.AddToHighScore(HighscoreController.goldDeliveryScore);
 
             triggerDeliverAnimation = true;
             isOccupied = true;
@@ -432,6 +440,23 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+
+    #region PowerUps
+
+    private void PowerUpManager()
+    {
+        if (hasPiercingPowerUp)
+        {
+            piercingPowerUpTimer += Time.deltaTime;
+            if(piercingPowerUpTimer >= piercingPowerUpDuration)
+            {
+                hasPiercingPowerUp = false;
+                piercingPowerUpTimer = 0;
+            }
+        }
+    }
+
+    #endregion
 
     public void TakeDamage(int damage)
     {
