@@ -9,6 +9,8 @@ public class MenuController : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject interfaceUI;
     public GameObject gameOverUI;
+
+
     private void Update()
     {
 
@@ -38,7 +40,7 @@ public class MenuController : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneTransitionController.LoadScene("Game");
     }
 
     public void QuitButton()
@@ -66,13 +68,13 @@ public class MenuController : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneTransitionController.LoadScene(SceneManager.GetActiveScene().name);
         Invoke("ResumeButton", 0);
     }
 
     public void MenueButton()
     {
-        SceneManager.LoadScene("MainMenue");
+        SceneTransitionController.LoadScene("MainMenue");
         Invoke("ResumeButton", 0);
     }
 
