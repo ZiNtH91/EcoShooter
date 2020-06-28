@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     protected float attackCooldown = 1;
     protected float attackDuration = 0.5f;
 
-    protected float powerUpProbability = 0.15f;
+    protected float powerUpProbability = 0.3f;
 
     protected virtual void Start()
     {

@@ -12,6 +12,9 @@ public class InterfaceController : MonoBehaviour
     public TextMeshProUGUI gameTime;
     public TextMeshProUGUI highScore;
 
+    public Color greenColor;
+    public Color goldColor;
+
     public Image[] seedMarkers;
     public TextMeshProUGUI carrotCount;
     public TextMeshProUGUI goldCount;
@@ -22,6 +25,7 @@ public class InterfaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         gameController = FindObjectOfType<GameController>();
         player = GameObject.Find("Character").GetComponent<PlayerController>();
     }
@@ -35,6 +39,14 @@ public class InterfaceController : MonoBehaviour
         goldCount.text = player.GetGoldCount().ToString();
         healthbar.fillAmount = (float)player.GetHealth() / 100;
         rentDeductionBar.fillAmount = 1 - gameController.GetRelativeRentDeductionTimer();
+        if (GameController.rentDelivered)
+        {
+            rentDeductionBar.color = greenColor;
+        }
+        else
+        {
+            rentDeductionBar.color = goldColor;
+        }
         HandleSeedMarkers(player.GetCurrentSeed());
 
 

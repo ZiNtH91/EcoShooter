@@ -23,9 +23,6 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         enemySpawnProbabilities = EnemySpawnProbabilities(new int[3] { snakeSpawnWeight, mouseSpawnWeight, ravenSpawnWeight });
-        Debug.Log(enemySpawnProbabilities[0]);
-        Debug.Log(enemySpawnProbabilities[1]);
-        Debug.Log(enemySpawnProbabilities[2]);
         SpawnEnemies(2);
     }
 
@@ -86,7 +83,7 @@ public class EnemySpawn : MonoBehaviour
         int _enemyIndex = -1;
         for (int j = 0; j < numberOfEnemies; j++)
         {
-            if (_enemyType <= enemySpawnProbabilities[j])
+            if (_enemyType <= spawnProbabilities[j])
             {
                 _enemyIndex = j;
                 break;
