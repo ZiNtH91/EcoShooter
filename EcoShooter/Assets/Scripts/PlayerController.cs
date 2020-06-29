@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
     private int health;
 
     public static bool hasPiercingPowerUp=false;
-    private float piercingPowerUpDuration=10;
-    private float piercingPowerUpTimer=0;
+    public static float piercingPowerUpDuration=10;
+    public static float piercingPowerUpTimer=0;
      
 
     //Central Components

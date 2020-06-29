@@ -25,7 +25,7 @@ public class MenuController : MonoBehaviour
             GameOver();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameController.gameOver)
         {
             if (GameController.gameIsPaused)
             {
@@ -64,6 +64,7 @@ public class MenuController : MonoBehaviour
         GameController.gameIsPaused = true;
         pauseMenuUI.SetActive(true);
         interfaceUI.SetActive(false);
+        Cursor.visible = true;
     }
 
     public void RestartButton()
@@ -75,6 +76,7 @@ public class MenuController : MonoBehaviour
     public void MenueButton()
     {
         SceneTransitionController.LoadScene("MainMenue");
+        Cursor.visible = true;
         Invoke("ResumeButton", 0);
     }
 

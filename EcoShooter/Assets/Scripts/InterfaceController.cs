@@ -12,6 +12,10 @@ public class InterfaceController : MonoBehaviour
     public TextMeshProUGUI gameTime;
     public TextMeshProUGUI highScore;
 
+    public TextMeshProUGUI powerUpDuration;
+    public Image powerUpDurationShader;
+    public GameObject powerUpDisplay;
+
     public Color greenColor;
     public Color goldColor;
 
@@ -39,6 +43,9 @@ public class InterfaceController : MonoBehaviour
         goldCount.text = player.GetGoldCount().ToString();
         healthbar.fillAmount = (float)player.GetHealth() / 100;
         rentDeductionBar.fillAmount = 1 - gameController.GetRelativeRentDeductionTimer();
+
+        PowerUpManager();
+
         if (GameController.rentDelivered)
         {
             rentDeductionBar.color = greenColor;
@@ -50,7 +57,7 @@ public class InterfaceController : MonoBehaviour
         HandleSeedMarkers(player.GetCurrentSeed());
 
 
-        //CrosshairController();
+        CrosshairController();
 
     }
 
@@ -74,6 +81,21 @@ public class InterfaceController : MonoBehaviour
             Cursor.visible = false;
         }
 
+    }
+
+    void PowerUpManager()
+    {
+        float duration = PlayerController.piercingPowerUpTimer / PlayerController.piercingPowerUpDuration;
+        if(duration > 0)
+        {
+            powerUpDisplay.SetActive(true);
+            powerUpDuration.text = Mathf.RoundToInt(PlayerController.piercingPowerUpDuration - PlayerController.piercingPowerUpTimer).ToString();
+            powerUpDurationShader.fillAmount = duration;
+        }
+        else
+        {
+            powerUpDisplay.SetActive(false);
+        }
     }
 
 }

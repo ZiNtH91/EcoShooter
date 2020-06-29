@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
 
     // Food Deduction Mechanism
     public int foodDeduction = 10;
-    private float foodDeductionTimer = 0;
     public float foodDeductionPeriod = 15;
 
     // General Vars and Objects

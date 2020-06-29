@@ -103,7 +103,10 @@ public class Shop : MonoBehaviour
                 carrotBasket++;
                 break;
             case "Health":
-                healthBasket+=10;
+                if(healthBasket + player.GetHealth() < 100)
+                {
+                    healthBasket += 10;
+                }
                 break;
             default:
                 Debug.Log("Problem!");
@@ -117,10 +120,16 @@ public class Shop : MonoBehaviour
         switch (itemName)
         {
             case "Carrot":
-                carrotBasket--;
+                if(carrotBasket >= 1)
+                {
+                    carrotBasket--;
+                }
                 break;
             case "Health":
-                healthBasket-=10;
+                if(healthBasket >= 10)
+                {
+                    healthBasket -= 10;
+                }
                 break;
             default:
                 Debug.Log("Problem!");
