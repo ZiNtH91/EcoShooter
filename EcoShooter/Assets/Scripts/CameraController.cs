@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     public void ScreenShake()
     {
         // Triggers slight screen shake animation. Alters the rotation of the camera, so the "Follow-Player-Behavior" is not affected by animations
-        anim.SetTrigger("shake");
+        //anim.SetTrigger("shake");
     }
 
 }

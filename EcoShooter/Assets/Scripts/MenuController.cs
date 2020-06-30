@@ -20,6 +20,8 @@ public class MenuController : MonoBehaviour
             return;
         }
 
+
+
         if (GameController.gameOver)
         {
             GameOver();
@@ -27,6 +29,12 @@ public class MenuController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) && !GameController.gameOver)
         {
+            // The Tutorial Scene can be left by hitting Escape
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                MenueButton();
+            }
+
             if (GameController.gameIsPaused)
             {
                 ResumeButton();
@@ -54,6 +62,7 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1f;
         GameController.gameIsPaused = false;
         GameController.gameOver = false;
+        Cursor.visible = true;
         pauseMenuUI.SetActive(false);
         interfaceUI.SetActive(true);
     }
@@ -76,6 +85,12 @@ public class MenuController : MonoBehaviour
     public void MenueButton()
     {
         SceneTransitionController.LoadScene("MainMenue");
+        Invoke("ResumeButton", 0);
+    }
+
+    public void TutorialButton()
+    {
+        SceneTransitionController.LoadScene("Tutorial");
         Cursor.visible = true;
         Invoke("ResumeButton", 0);
     }
