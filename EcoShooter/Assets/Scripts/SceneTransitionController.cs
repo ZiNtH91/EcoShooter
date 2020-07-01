@@ -10,6 +10,7 @@ public class SceneTransitionController : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
         sceneTransitionAnimator = GetComponent<Animator>();
     }
 
